@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+      window.onload = function() {
+        document.getElementById('city').focus();
+      }
+      function showSpinner() {
+        document.getElementById('spinner').style.display = 'block';
+      }
+    </script>
+</head>
+<body class="{% if weather %}theme-{{ weather.main|lower }}{% endif %}">
+    <h1>Weather App</h1>
+    <form method="post" onsubmit="showSpinner();">
+        <input id="city" type="text" name="city" placeholder="Enter city name" required autocomplete="off">
+        <button type="submit">Get Weather</button>
+    </form>
+    <div id="spinner" style="display:none;">
+        <div class="loading"></div>
+    </div>
+    {% if history and not weather %}
+      <h3>Recent Searches:</h3>
+      <ul class="history">
+        {% for item in history %}
+        <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if weather %}
+        <div class="weather fade-in">
+            <h2>{{ weather.city }}</h2>
+            <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="icon">
+            <p>{{ weather.description }}</p>
+            <p>Temperature: {{ weather.temperature }} &deg;C</p>
+            <p>Humidity: {{ weather.humidity }}%</p>
+            <p>Wind: {{ weather.wind }} m/s</p>
+        </div>
+    {% elif error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>

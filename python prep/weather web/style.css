@@ -1,0 +1,53 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f0f0;
+    text-align: center;
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.4s;
+}
+form { margin: 30px auto 10px; }
+input, button {
+    padding: 10px;
+    font-size: 1.1em;
+    margin-right: 8px;
+}
+button { cursor: pointer; }
+.weather {
+    background: rgba(255,255,255,0.9);
+    margin: 30px auto;
+    padding: 20px 30px;
+    border-radius: 12px;
+    display: inline-block;
+    box-shadow: 0 6px 36px rgba(120,120,200,0.15);
+    animation: fadein 0.5s;
+}
+.fade-in { opacity: 0; animation: fadein 1s forwards; }
+@keyframes fadein { to { opacity: 1;} }
+h1 { margin-top: 24px; }
+
+.loading {
+    border: 8px solid #f0f0f0;
+    border-left: 8px solid #3498db;
+    border-right:8px solid #eee;
+    border-radius: 50%;
+    width: 40px; height: 40px;
+    margin: 18px auto;
+    animation: spin 0.9s linear infinite;
+}
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.error { color: #ff2d2d; margin-top: 24px; font-weight: bold;}
+.history { list-style: none; padding: 0; }
+.history li { display: inline-block; margin: 0 7px 0 0; background:#dbeafe; padding:4px 12px; border-radius:8px; }
+
+.theme-clear { background: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);}
+.theme-clouds { background: linear-gradient(120deg, #c9d6ff 0%, #e2e2e2 100%);}
+.theme-rain {background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);}
+.theme-snow {background: linear-gradient(120deg, #f5fafd 0%, #b8c6db 100%);}
+.theme-thunderstorm {background: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);}
+.theme-drizzle {background: linear-gradient(120deg, #43cea2 0%, #185a9d 100%);}
+.theme-mist {background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);}
+.theme-fog {background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);}
+
+img { margin-top: 6px; }
