@@ -14,26 +14,97 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#weather">Weather</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <section id="home">
-        <h2 class="typing">Welcome to Ashish Water PVT.Ltd</h2>
-        <p>Your trusted partner for water solutions.</p>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2 class="typing">Welcome to Ashish Water PVT.Ltd</h2>
+            <p class="hero-subtitle">Your trusted partner for premium water solutions</p>
+            <p class="hero-description">We provide comprehensive water treatment services, from purification to testing, ensuring clean and safe water for homes, businesses, and industries.</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <div class="water-drop"></div>
+        </div>
     </section>
     <section id="about">
         <h2>About Us</h2>
-        <p>ashish Water PVT.Ltd is dedicated to providing high-quality water treatment services and products.</p>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Ashish Water PVT.Ltd is dedicated to providing high-quality water treatment services and products. With years of experience in the water purification industry, we have built a reputation for excellence and reliability.</p>
+                <p>Our team of experts uses cutting-edge technology and innovative solutions to ensure that every client receives the best possible water treatment services. We believe in sustainable practices and environmental responsibility in all our operations.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Happy Clients</p>
+                </div>
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat">
+                    <h3>1000+</h3>
+                    <p>Projects Completed</p>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="services">
         <h2>Our Services</h2>
-        <ul>
-            <li>Water Purification</li>
-            <li>Water Testing</li>
-            <li>Installation of Water Treatment Systems</li>
-        </ul>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">💧</div>
+                <h3>Water Purification</h3>
+                <p>Advanced filtration systems to remove contaminants and provide crystal-clear, safe drinking water for your home or business.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧪</div>
+                <h3>Water Testing</h3>
+                <p>Comprehensive water quality analysis to identify impurities, pH levels, and potential health risks in your water supply.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Installation & Maintenance</h3>
+                <p>Professional installation of water treatment systems with ongoing maintenance services to ensure optimal performance.</p>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Ashish Water provided excellent service for our office water purification system. The team was professional and the results were outstanding."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Rajesh Kumar</h4>
+                    <p>Office Manager, TechCorp</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"We installed their home water system and couldn't be happier. Clean water and great customer support throughout the process."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Priya Sharma</h4>
+                    <p>Homeowner</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p>"Their water testing services helped us identify and resolve contamination issues quickly. Highly recommended for businesses."</p>
+                </div>
+                <div class="testimonial-author">
+                    <h4>Amit Patel</h4>
+                    <p>Restaurant Owner</p>
+                </div>
+            </div>
+        </div>
     </section>
     <section id="weather">
         <h2>Weather Information</h2>
@@ -44,22 +115,75 @@
     </section>
     <section id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@ashishwater.com</p>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send Message</button>
-        </form>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@ashishwater.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+91 98765 43210</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Address</h3>
+                        <p>123 Water Street, Clean City, India</p>
+                    </div>
+                </div>
+            </div>
+            <form id="contactForm">
+                <h3>Send us a Message</h3>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
     </section> 
     <footer>
-        <p>&copy; 2024 Ashish Water PVT.Ltd. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Ashish Water PVT.Ltd</h3>
+                <p>Your trusted partner for clean water solutions since 2014.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">📘 Facebook</a>
+                    <a href="#" class="social-link">🐦 Twitter</a>
+                    <a href="#" class="social-link">📷 Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ashish Water PVT.Ltd. All rights reserved.</p>
+        </div>
     </footer>
     <script>
         // Smooth scrolling for navigation
