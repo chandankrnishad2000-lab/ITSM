@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashish Water PVT.Ltd</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ashish Water PVT.Ltd</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#weather">Weather</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home">
+        <h2 class="typing">Welcome to Ashish Water PVT.Ltd</h2>
+        <p>Your trusted partner for water solutions.</p>
+    </section>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>ashish Water PVT.Ltd is dedicated to providing high-quality water treatment services and products.</p>
+    </section>
+    <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Water Purification</li>
+            <li>Water Testing</li>
+            <li>Installation of Water Treatment Systems</li>
+        </ul>
+    </section>
+    <section id="weather">
+        <h2>Weather Information</h2>
+        <p>Check the current weather conditions:</p>
+        <input type="text" id="city" placeholder="Enter city name" value="Delhi">
+        <button id="getWeather">Get Weather</button>
+        <div id="weatherResult"></div>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: info@ashishwater.com</p>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section> 
+    <footer>
+        <p>&copy; 2024 Ashish Water PVT.Ltd. All rights reserved.</p>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Weather fetch
+        document.getElementById('getWeather').addEventListener('click', function() {
+            const city = document.getElementById('city').value;
+            const resultDiv = document.getElementById('weatherResult');
+            resultDiv.innerHTML = '<div class="spinner"></div>Loading weather data...';
+
+            fetch(`https://wttr.in/${city}?format=%C+%t+%w+%h`)
+                .then(response => response.text())
+                .then(data => {
+                    resultDiv.innerHTML = `<p>Weather in ${city}: ${data}</p>`;
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = '<p>Unable to fetch weather data. Please try again.</p>';
+                });
+        });
+
+        // Fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
