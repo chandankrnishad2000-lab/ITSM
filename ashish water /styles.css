@@ -5,7 +5,11 @@
     justify-content: space-between;
     min-height: 80vh;
     padding: 4rem 2rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 50%, rgba(240, 147, 251, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: white;
     position: relative;
     overflow: hidden;
@@ -110,6 +114,68 @@
     100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
 }
 
+/* Global Body Background */
+body {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.05;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Floating bubbles animation */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(135,206,235,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 90% 80%, rgba(70,130,180,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 50% 50%, rgba(176,196,222,0.1) 1.5px, transparent 1.5px),
+        radial-gradient(circle at 80% 10%, rgba(135,206,235,0.1) 1px, transparent 1px),
+        radial-gradient(circle at 20% 90%, rgba(70,130,180,0.1) 1.5px, transparent 1.5px);
+    background-size: 100px 100px, 150px 150px, 200px 200px, 120px 120px, 180px 180px;
+    animation: bubble-float 30s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes bubble-float {
+    0%, 100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.1;
+    }
+    25% { 
+        transform: translateY(-20px) translateX(10px) scale(1.1);
+        opacity: 0.15;
+    }
+    50% { 
+        transform: translateY(-10px) translateX(-15px) scale(0.9);
+        opacity: 0.1;
+    }
+    75% { 
+        transform: translateY(-30px) translateX(5px) scale(1.05);
+        opacity: 0.12;
+    }
+}
+
 /* Header styling */
 header {
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
@@ -198,11 +264,29 @@ nav a:hover::after {
 }
 
 /* About Section */
-.about-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 3rem;
-    align-items: center;
+#about {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,250,0.9) 100%),
+                url('https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+#about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.85);
+    z-index: 1;
+}
+
+#about > * {
+    position: relative;
+    z-index: 2;
 }
 
 .about-text p {
@@ -258,7 +342,7 @@ nav a:hover::after {
 /* Enhanced Animations */
 .service-card {
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    padding: 2rem;
+    padding: 0;
     border-radius: 15px;
     text-align: center;
     transition: all 0.3s ease;
@@ -288,52 +372,54 @@ nav a:hover::after {
     box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
-/* Floating particles effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
+.service-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.service-image img {
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: float-bg 20s ease-in-out infinite;
-    z-index: -1;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-@keyframes float-bg {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-10px) rotate(1deg); }
-    66% { transform: translateY(10px) rotate(-1deg); }
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    display: block;
+.service-card:hover .service-image img {
+    transform: scale(1.1);
 }
 
 .service-card h3 {
     color: #007bff;
-    margin-bottom: 1rem;
+    margin: 1.5rem 1rem 1rem;
     font-size: 1.5rem;
 }
 
 .service-card p {
     color: #666;
     line-height: 1.6;
+    padding: 0 1.5rem 1.5rem;
 }
 
 /* Testimonials Section */
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+#testimonials {
+    background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+    position: relative;
+}
+
+#testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    z-index: 0;
 }
 
 .testimonial-card {
@@ -396,11 +482,23 @@ body::before {
 }
 
 /* Contact Section */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
+#contact {
+    background: linear-gradient(135deg, rgba(255,193,7,0.05) 0%, rgba(255,87,34,0.05) 100%);
+    position: relative;
+}
+
+#contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    z-index: 0;
 }
 
 .contact-info {
@@ -712,7 +810,22 @@ button:active {
 
 /* Weather section */
 #weather {
-    text-align: center;
+    background: linear-gradient(135deg, rgba(240,147,251,0.05) 0%, rgba(167,139,250,0.05) 100%);
+    position: relative;
+}
+
+#weather::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.03;
+    z-index: 0;
 }
 
 #weather p {
