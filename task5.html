@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>University Portal</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+
+.navbar {
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 420px;
+  color: white;
+  margin: auto;
+  margin-top: 60px;
+}
+
+/* Inputs */
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #00f2fe;
+}
+
+/* Button */
+.btn-custom {
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  border: none;
+  color: white;
+}
+
+.btn-custom:hover {
+  transform: scale(1.03);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🏫 HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">🎓 University Portal</a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Students</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 🎓 FORM -->
+<div class="container">
+  <div class="glass-card">
+
+    <h3 class="text-center mb-4">Student Registration</h3>
+
+    <div id="alertBox"></div>
+
+    <form id="studentForm">
+
+      <div class="mb-3">
+        <label>Full Name</label>
+        <input type="text" id="name" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Email</label>
+        <input type="email" id="email" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Course</label>
+        <input type="text" id="course" class="form-control">
+      </div>
+
+      <div class="mb-3">
+        <label>Password</label>
+        <input type="password" id="password" class="form-control">
+      </div>
+
+      <button type="submit" class="btn btn-custom w-100 mt-3">
+        Register
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById("studentForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+  let course = document.getElementById("course").value;
+  let password = document.getElementById("password").value;
+
+  let alertBox = document.getElementById("alertBox");
+
+  if(name === "" || email === "" || course === "" || password === ""){
+    alertBox.innerHTML = `<div class="alert alert-danger">⚠️ Fill all fields!</div>`;
+  } else {
+    alertBox.innerHTML = `<div class="alert alert-success">✅ Registered Successfully!</div>`;
+    document.getElementById("studentForm").reset();
+  }
+});
+</script>
+
+</body>
+</html>
