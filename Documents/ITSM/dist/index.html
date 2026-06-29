@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart ITSM Portal</title>
+    <meta
+      name="description"
+      content="Smart ITSM Portal for incidents, service requests, assets, employees, and support teams."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/assets/index-B3tBdbbs.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CxJzjCM1.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">IT</div>
+          <div>
+            <h1>Smart ITSM Portal</h1>
+            <p>Service desk operations hub</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Primary">
+          <button class="nav-item active" data-view="dashboard">Dashboard</button>
+          <button class="nav-item" data-view="incidents">Incidents</button>
+          <button class="nav-item" data-view="requests">Service Requests</button>
+          <button class="nav-item" data-view="assets">Assets</button>
+          <button class="nav-item" data-view="employees">Employees</button>
+          <button class="nav-item" data-view="teams">Support Teams</button>
+        </nav>
+
+        <section class="sidebar-card">
+          <h2>Today</h2>
+          <div class="metric-row">
+            <span>Open incidents</span>
+            <strong id="openIncidents">18</strong>
+          </div>
+          <div class="metric-row">
+            <span>Pending requests</span>
+            <strong id="pendingRequests">12</strong>
+          </div>
+          <div class="metric-row">
+            <span>SLA at risk</span>
+            <strong id="slaRisk">4</strong>
+          </div>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">IT Service Management</p>
+            <h2>Operational control for employees and support engineers</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-btn">Create ticket</button>
+            <button class="primary-btn">Assign queue</button>
+          </div>
+        </header>
+
+        <section class="hero-grid">
+          <article class="hero-card accent">
+            <p>Service health</p>
+            <h3 id="serviceHealth">92% SLA compliance</h3>
+            <span id="serviceHealthDetail">Faster triage, visibility across teams, and clean handoffs.</span>
+          </article>
+          <article class="hero-card">
+            <p>Workflow focus</p>
+            <h3 id="workflowFocus">Report → Triage → Resolve</h3>
+            <span id="workflowFocusDetail">Structured paths for incidents and requests from intake to closure.</span>
+          </article>
+          <article class="hero-card">
+            <p>Asset control</p>
+            <h3 id="assetControl">128 tracked assets</h3>
+            <span id="assetControlDetail">Devices, licenses, and ownership mapped to employees and teams.</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <article class="panel panel-large">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Live operations</p>
+                <h3>Queue overview</h3>
+              </div>
+              <span class="status-pill">Real-time</span>
+            </div>
+
+            <div id="queueList" class="ticket-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Workflow</p>
+                <h3>Incident handling</h3>
+              </div>
+            </div>
+            <ol class="workflow">
+              <li><strong>Report</strong><span>Employees submit issues with category, urgency, and impact.</span></li>
+              <li><strong>Triage</strong><span>Support engineers classify, prioritize, and route.</span></li>
+              <li><strong>Resolve</strong><span>Teams collaborate, document fixes, and close with notes.</span></li>
+            </ol>
+          </article>
+        </section>
+
+        <section class="details-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Requests</p>
+                <h3>Popular service requests</h3>
+              </div>
+            </div>
+            <div id="requestList" class="simple-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Assets</p>
+                <h3>Ownership and status</h3>
+              </div>
+            </div>
+            <div id="assetList" class="simple-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">People</p>
+                <h3>Employee support snapshot</h3>
+              </div>
+            </div>
+            <div id="employeeList" class="simple-list"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Teams</p>
+                <h3>Support coverage</h3>
+              </div>
+            </div>
+            <div id="teamList" class="simple-list"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
