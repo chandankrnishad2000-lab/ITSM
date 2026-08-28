@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Webpage</title>
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              500: '#0d6efd',
+              600: '#0a58ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .back-to-top {
+      position: fixed; bottom: 24px; right: 24px;
+      display: none; z-index: 1050;
+      width: 48px; height: 48px; border-radius: 50%;
+      border: none; font-size: 1.25rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    }
+    .counter { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors">
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">MySite</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <button id="themeToggle" class="btn btn-outline-secondary btn-sm" title="Toggle dark mode">
+              <span id="themeIcon">🌙</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="text-center py-5 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <div class="container">
+      <span class="inline-block px-3 py-1 mb-3 text-sm rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300">✨ Now with Tailwind CSS</span>
+      <h1 class="display-4 fw-bold">Welcome to My Webpage</h1>
+      <p class="lead text-gray-600 dark:text-gray-400 mx-auto max-w-2xl">
+        Built with Bootstrap 5 and Tailwind CSS — responsive, modern, and easy to customize.
+      </p>
+      <div class="mt-4 flex gap-3 justify-center flex-wrap">
+        <a href="#features" class="btn btn-primary btn-lg px-4">Get Started</a>
+        <a href="#pricing" class="btn btn-outline-secondary btn-lg px-4">View Pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-5 border-y border-gray-200 dark:border-gray-700">
+    <div class="container">
+      <div class="row text-center g-4">
+        <div class="col-6 col-md-3">
+          <h3 class="fw-bold counter display-6" data-target="12500">0</h3>
+          <p class="text-muted mb-0">Happy Users</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="fw-bold counter display-6" data-target="350">0</h3>
+          <p class="text-muted mb-0">Projects</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="fw-bold counter display-6" data-target="98">0</h3>
+          <p class="text-muted mb-0">% Satisfaction</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h3 class="fw-bold counter display-6" data-target="24">0</h3>
+          <p class="text-muted mb-0">Support Hours</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Features</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">📱</div>
+              <h5 class="card-title fw-semibold">Responsive</h5>
+              <p class="card-text text-muted">Looks great on phones, tablets, and desktops thanks to Bootstrap's grid and Tailwind utilities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">⚡</div>
+              <h5 class="card-title fw-semibold">Fast</h5>
+              <p class="card-text text-muted">Lightweight components loaded from CDN for quick page loads.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">🎨</div>
+              <h5 class="card-title fw-semibold">Customizable</h5>
+              <p class="card-text text-muted">Easily tweak colors, spacing, and layout with utility classes from both frameworks.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">🌙</div>
+              <h5 class="card-title fw-semibold">Dark Mode</h5>
+              <p class="card-text text-muted">Toggle between light and dark themes — your preference is remembered.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">🔒</div>
+              <h5 class="card-title fw-semibold">Secure</h5>
+              <p class="card-text text-muted">Built with security best practices and no sensitive data stored.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 text-center border-0 shadow-sm hover:shadow-lg transition-shadow rounded-4">
+            <div class="card-body p-4">
+              <div class="fs-1 mb-2">🚀</div>
+              <h5 class="card-title fw-semibold">Scalable</h5>
+              <p class="card-text text-muted">From landing page to full product — the structure grows with you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <h2 class="fw-bold">About</h2>
+          <p class="text-muted">This is a sample webpage built with Bootstrap 5 and Tailwind CSS. It demonstrates the grid system, cards, navbar, carousel, accordion, and utility-first styling working together.</p>
+          <ul class="list-unstyled">
+            <li class="mb-2">✅ Bootstrap components &amp; grid</li>
+            <li class="mb-2">✅ Tailwind utility classes</li>
+            <li class="mb-2">✅ Vanilla JS interactions</li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <img src="https://placehold.co/600x350/0d6efd/white?text=Bootstrap+%2B+Tailwind" class="img-fluid rounded-4 shadow" alt="Placeholder">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Pricing</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-4">
+          <div class="rounded-4 border border-gray-200 dark:border-gray-700 p-4 h-100 flex flex-col bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl transition-shadow">
+            <h5 class="fw-semibold">Starter</h5>
+            <p class="display-6 fw-bold">$0<span class="fs-6 text-muted fw-normal">/mo</span></p>
+            <ul class="text-muted list-unstyled space-y-2 mb-4 flex-grow-1">
+              <li>✔ 1 project</li>
+              <li>✔ Community support</li>
+              <li>✔ Basic analytics</li>
+            </ul>
+            <button class="btn btn-outline-primary w-100 mt-auto">Choose Starter</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="rounded-4 p-4 h-100 flex flex-col bg-brand-500 text-white shadow-lg relative scale-105">
+            <span class="absolute top-3 right-3 text-xs bg-yellow-400 text-gray-900 px-2 py-1 rounded-full fw-semibold">POPULAR</span>
+            <h5 class="fw-semibold">Pro</h5>
+            <p class="display-6 fw-bold">$19<span class="fs-6 opacity-75 fw-normal">/mo</span></p>
+            <ul class="opacity-90 list-unstyled space-y-2 mb-4 flex-grow-1">
+              <li>✔ Unlimited projects</li>
+              <li>✔ Priority support</li>
+              <li>✔ Advanced analytics</li>
+              <li>✔ Custom domains</li>
+            </ul>
+            <button class="btn btn-light w-100 mt-auto fw-semibold">Choose Pro</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="rounded-4 border border-gray-200 dark:border-gray-700 p-4 h-100 flex flex-col bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl transition-shadow">
+            <h5 class="fw-semibold">Enterprise</h5>
+            <p class="display-6 fw-bold">$49<span class="fs-6 text-muted fw-normal">/mo</span></p>
+            <ul class="text-muted list-unstyled space-y-2 mb-4 flex-grow-1">
+              <li>✔ Everything in Pro</li>
+              <li>✔ Dedicated manager</li>
+              <li>✔ SLA guarantee</li>
+              <li>✔ SSO &amp; audit logs</li>
+            </ul>
+            <button class="btn btn-outline-primary w-100 mt-auto">Contact Sales</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials" class="py-5 bg-body-tertiary">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="text-center mb-4 fw-bold">Testimonials</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="text-center p-4">
+              <p class="fs-5 fst-italic text-muted">"This template saved me days of work. The mix of Bootstrap and Tailwind is seamless!"</p>
+              <p class="fw-semibold mb-0">— Priya Sharma</p>
+              <small class="text-muted">Frontend Developer</small>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-4">
+              <p class="fs-5 fst-italic text-muted">"Clean, fast, and fully responsive. The dark mode toggle is a great touch."</p>
+              <p class="fw-semibold mb-0">— Rahul Verma</p>
+              <small class="text-muted">Product Manager</small>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="text-center p-4">
+              <p class="fs-5 fst-italic text-muted">"Our team shipped our landing page in one afternoon using this as a base."</p>
+              <p class="fw-semibold mb-0">— Ananya Iyer</p>
+              <small class="text-muted">Startup Founder</small>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+        <div class="carousel-indicators position-static mt-3">
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-5">
+    <div class="container" style="max-width: 760px;">
+      <h2 class="text-center mb-4 fw-bold">FAQ</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Can Bootstrap and Tailwind be used together?
+            </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Yes! This page uses Bootstrap for components (navbar, carousel, accordion) and Tailwind for utility-based styling. Just watch for conflicting resets.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Is the dark mode preference saved?
+            </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              Yes, your choice is stored in localStorage and restored on your next visit.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Do I need to install anything?
+            </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body text-muted">
+              No. Both frameworks load from CDN, so you can just open this file in a browser.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5 bg-body-tertiary">
+    <div class="container" style="max-width: 600px;">
+      <h2 class="text-center mb-4 fw-bold">Contact</h2>
+      <form id="contactForm" class="bg-white dark:bg-gray-800 rounded-4 shadow-sm p-4">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="Your name" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control" id="message" rows="4" placeholder="Your message" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        <div id="formAlert" class="alert alert-success mt-3 d-none mb-0 py-2 text-center">Thanks! Your message has been sent. ✅</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-2">Follow us:
+        <a href="#" class="text-white text-decoration-none mx-1">Twitter</a> ·
+        <a href="#" class="text-white text-decoration-none mx-1">GitHub</a> ·
+        <a href="#" class="text-white text-decoration-none mx-1">LinkedIn</a>
+      </p>
+      <small class="text-secondary">&copy; 2026 MySite. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backToTop" class="back-to-top btn-primary text-white" title="Back to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dark mode toggle (persisted)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    applyTheme(localStorage.getItem('theme') || 'light');
+
+    themeToggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      applyTheme(next);
+    });
+
+    // Animated stat counters
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        observer.unobserve(el);
+        const target = +el.dataset.target;
+        const duration = 1500;
+        const start = performance.now();
+        (function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = Math.floor(target * (1 - Math.pow(1 - progress, 3))).toLocaleString();
+          if (progress < 1) requestAnimationFrame(tick);
+        })(start);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => observer.observe(c));
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 400 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Contact form demo submit
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('formAlert').classList.remove('d-none');
+      e.target.reset();
+      setTimeout(() => document.getElementById('formAlert').classList.add('d-none'), 4000);
+    });
+  </script>
+</body>
+</html>

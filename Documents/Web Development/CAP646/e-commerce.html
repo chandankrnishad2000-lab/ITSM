@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Harbor &amp; Pine | Place an order</title>
+	<style>
+		:root {
+			--ink: #173238;
+			--muted: #637578;
+			--line: #dce7e5;
+			--paper: #f5f8f4;
+			--white: #ffffff;
+			--teal: #126b68;
+			--teal-dark: #0d514f;
+			--coral: #ed755b;
+			--shadow: 0 18px 45px rgba(22, 55, 58, 0.10);
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: Georgia, "Times New Roman", serif;
+			line-height: 1.5;
+		}
+
+		button, input, select, textarea { font: inherit; }
+
+		.topbar {
+			padding: 16px clamp(20px, 5vw, 72px);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background: var(--ink);
+			color: white;
+		}
+
+		.brand {
+			font-size: 1.25rem;
+			letter-spacing: 0.08em;
+			text-transform: uppercase;
+		}
+
+		.order-label {
+			color: #b8d1c9;
+			font-family: Arial, sans-serif;
+			font-size: 0.75rem;
+			letter-spacing: 0.12em;
+			text-transform: uppercase;
+		}
+
+		main { max-width: 1180px; margin: 0 auto; padding: 54px 20px 76px; }
+
+		.intro { max-width: 700px; margin-bottom: 34px; }
+		.eyebrow { color: var(--coral); font: 700 0.76rem Arial, sans-serif; letter-spacing: 0.15em; text-transform: uppercase; }
+		h1 { margin: 8px 0 12px; font-size: clamp(2.4rem, 5vw, 4.5rem); line-height: 0.98; font-weight: 400; }
+		.intro p { margin: 0; color: var(--muted); font-size: 1.1rem; }
+
+		.layout { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.8fr); gap: 28px; align-items: start; }
+		.panel { background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); padding: clamp(22px, 4vw, 38px); }
+		.panel h2 { margin: 0 0 5px; font-size: 1.55rem; font-weight: 400; }
+		.panel-intro { margin: 0 0 22px; color: var(--muted); font: 0.86rem Arial, sans-serif; }
+
+		.product-list { display: grid; gap: 12px; }
+		.product { display: grid; grid-template-columns: 58px 1fr auto; gap: 15px; align-items: center; padding: 14px; border: 1px solid var(--line); }
+		.product-art { display: grid; place-items: center; width: 58px; height: 58px; color: var(--teal-dark); background: #e3f0eb; font-size: 1.35rem; }
+		.product h3 { margin: 0; font-size: 1.05rem; font-weight: 400; }
+		.product small { color: var(--muted); font: 0.78rem Arial, sans-serif; }
+		.price { display: block; margin-bottom: 7px; text-align: right; font: 700 0.9rem Arial, sans-serif; }
+		.quantity { display: flex; align-items: center; gap: 8px; font: 0.75rem Arial, sans-serif; color: var(--muted); }
+		.quantity input { width: 58px; padding: 7px 5px; border: 1px solid var(--line); color: var(--ink); text-align: center; }
+
+		.section { margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--line); }
+		.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+		.field { display: grid; gap: 6px; }
+		.field.full { grid-column: 1 / -1; }
+		label { font: 700 0.76rem Arial, sans-serif; letter-spacing: 0.03em; }
+		input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; padding: 11px 12px; background: #fbfdfb; color: var(--ink); }
+		textarea { min-height: 80px; resize: vertical; }
+		input:focus, select:focus, textarea:focus { outline: 2px solid #9ac8bb; outline-offset: 1px; }
+
+		.payment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+		.payment-option { position: relative; }
+		.payment-option input { position: absolute; opacity: 0; }
+		.payment-option label { display: block; padding: 13px 9px; border: 1px solid var(--line); text-align: center; cursor: pointer; font-weight: 400; }
+		.payment-option input:checked + label { border-color: var(--teal); background: #e7f3ee; color: var(--teal-dark); font-weight: 700; }
+
+		.summary { position: sticky; top: 22px; background: var(--ink); color: white; border: 0; }
+		.summary h2 { color: white; }
+		.summary .panel-intro { color: #b8d1c9; }
+		.summary-row { display: flex; justify-content: space-between; gap: 20px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.16); font: 0.88rem Arial, sans-serif; }
+		.summary-row span:first-child { color: #b8d1c9; }
+		.summary-total { display: flex; justify-content: space-between; margin: 22px 0; font-size: 1.35rem; }
+		.summary-total strong { color: #ffd0bd; font-weight: 400; }
+		.actions { display: grid; gap: 10px; }
+		button { border: 0; padding: 13px 18px; cursor: pointer; font: 700 0.8rem Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+		.confirm { background: var(--coral); color: white; }
+		.confirm:hover { background: #d9624c; }
+		.reject { background: transparent; color: #b8d1c9; border: 1px solid rgba(255,255,255,0.35); }
+		.reject:hover { color: white; border-color: white; }
+		.status { display: none; margin-top: 18px; padding: 13px; background: rgba(255,255,255,0.1); color: #d7eee5; font: 0.83rem Arial, sans-serif; }
+		.status.visible { display: block; }
+
+		@media (max-width: 760px) {
+			.topbar { align-items: flex-start; gap: 10px; flex-direction: column; }
+			main { padding-top: 38px; }
+			.layout { grid-template-columns: 1fr; }
+			.summary { position: static; }
+		}
+
+		@media (max-width: 480px) {
+			.product { grid-template-columns: 48px 1fr; }
+			.product-art { width: 48px; height: 48px; }
+			.product > div:last-child { grid-column: 2; }
+			.form-grid, .payment-options { grid-template-columns: 1fr; }
+			.field.full { grid-column: auto; }
+		}
+	</style>
+</head>
+<body>
+	<header class="topbar">
+		<div class="brand">Harbor &amp; Pine</div>
+		<div class="order-label">Simple goods, thoughtfully sent</div>
+	</header>
+
+	<main>
+		<section class="intro">
+			<div class="eyebrow">Order desk</div>
+			<h1>Make it yours.</h1>
+			<p>Choose your pieces, add delivery details, and review everything before your order leaves the harbor.</p>
+		</section>
+
+		<div class="layout">
+			<form class="panel" id="orderForm">
+				<section>
+					<h2>1. Select your items</h2>
+					<p class="panel-intro">Set a quantity for each item you would like to receive.</p>
+					<div class="product-list">
+						<article class="product">
+							<div class="product-art" aria-hidden="true">☕</div>
+							<div><h3>Stoneware morning mug</h3><small>Hand-finished, 12 oz</small></div>
+							<div><span class="price">$24.00</span><div class="quantity"><label for="mugQty">Qty</label><input id="mugQty" class="quantity-input" data-name="Morning mug" data-price="24" type="number" min="0" max="20" value="1"></div></div>
+						</article>
+						<article class="product">
+							<div class="product-art" aria-hidden="true">▥</div>
+							<div><h3>Linen market tote</h3><small>Natural flax, reinforced handles</small></div>
+							<div><span class="price">$32.00</span><div class="quantity"><label for="toteQty">Qty</label><input id="toteQty" class="quantity-input" data-name="Linen tote" data-price="32" type="number" min="0" max="20" value="1"></div></div>
+						</article>
+						<article class="product">
+							<div class="product-art" aria-hidden="true">✦</div>
+							<div><h3>Cedar &amp; citrus candle</h3><small>Plant wax, 40-hour burn</small></div>
+							<div><span class="price">$28.00</span><div class="quantity"><label for="candleQty">Qty</label><input id="candleQty" class="quantity-input" data-name="Cedar candle" data-price="28" type="number" min="0" max="20" value="1"></div></div>
+						</article>
+					</div>
+				</section>
+
+				<section class="section">
+					<h2>2. Billing &amp; delivery</h2>
+					<p class="panel-intro">Where should we send your order?</p>
+					<div class="form-grid">
+						<div class="field"><label for="customerName">Full name</label><input id="customerName" name="customerName" required placeholder="Alex Morgan"></div>
+						<div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" required placeholder="alex@example.com"></div>
+						<div class="field full"><label for="address">Street address</label><input id="address" name="address" required placeholder="18 Shoreline Avenue"></div>
+						<div class="field"><label for="city">City</label><input id="city" name="city" required placeholder="Portland"></div>
+						<div class="field"><label for="state">State / province</label><input id="state" name="state" required placeholder="Maine"></div>
+						<div class="field"><label for="postal">Postal code</label><input id="postal" name="postal" required placeholder="04101"></div>
+						<div class="field"><label for="country">Country</label><select id="country" name="country"><option>United States</option><option>Canada</option><option>United Kingdom</option><option>Australia</option></select></div>
+						<div class="field full"><label for="notes">Delivery note <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="notes" name="notes" placeholder="A quiet place to leave the parcel..."></textarea></div>
+					</div>
+				</section>
+
+				<section class="section">
+					<h2>3. Mode of payment</h2>
+					<p class="panel-intro">Choose how you would like to pay.</p>
+					<div class="payment-options">
+						<div class="payment-option"><input id="card" type="radio" name="payment" value="Card" checked><label for="card">Card</label></div>
+						<div class="payment-option"><input id="wallet" type="radio" name="payment" value="Digital wallet"><label for="wallet">Digital wallet</label></div>
+						<div class="payment-option"><input id="cod" type="radio" name="payment" value="Cash on delivery"><label for="cod">Cash on delivery</label></div>
+					</div>
+				</section>
+			</form>
+
+			<aside class="panel summary" aria-live="polite">
+				<h2>Order review</h2>
+				<p class="panel-intro">Your selected items</p>
+				<div id="summaryItems"></div>
+				<div class="summary-row"><span>Delivery</span><span>$5.00</span></div>
+				<div class="summary-total"><span>Total</span><strong id="total">$89.00</strong></div>
+				<div class="actions">
+					<button class="confirm" id="confirmOrder" type="submit" form="orderForm">Confirm order</button>
+					<button class="reject" id="rejectOrder" type="button">Reject order</button>
+				</div>
+				<div class="status" id="status" role="status"></div>
+			</aside>
+		</div>
+	</main>
+
+	<script>
+		const form = document.getElementById('orderForm');
+		const quantityInputs = document.querySelectorAll('.quantity-input');
+		const summaryItems = document.getElementById('summaryItems');
+		const total = document.getElementById('total');
+		const status = document.getElementById('status');
+
+		function updateSummary() {
+			let subtotal = 0;
+			summaryItems.innerHTML = '';
+			quantityInputs.forEach((input) => {
+				const quantity = Math.max(0, Number(input.value) || 0);
+				const amount = quantity * Number(input.dataset.price);
+				subtotal += amount;
+				if (quantity > 0) {
+					const row = document.createElement('div');
+					row.className = 'summary-row';
+					row.innerHTML = `<span>${input.dataset.name} × ${quantity}</span><span>$${amount.toFixed(2)}</span>`;
+					summaryItems.appendChild(row);
+				}
+			});
+			total.textContent = `$${(subtotal + (subtotal ? 5 : 0)).toFixed(2)}`;
+		}
+
+		quantityInputs.forEach((input) => input.addEventListener('input', updateSummary));
+
+		form.addEventListener('submit', (event) => {
+			event.preventDefault();
+			if (!form.checkValidity()) {
+				form.reportValidity();
+				return;
+			}
+			status.textContent = `Order confirmed for ${document.getElementById('customerName').value}. Thank you, we will email your receipt shortly.`;
+			status.classList.add('visible');
+		});
+
+		document.getElementById('rejectOrder').addEventListener('click', () => {
+			status.textContent = 'Order rejected. Your selections remain here if you would like to review them again.';
+			status.classList.add('visible');
+		});
+
+		updateSummary();
+	</script>
+    <input type="hidden" name="csrf_token" value="1234567890abcdef">
+    <input type="hidden" name="session_id" value="abcdef1234567890">
+    <input type="hidden" name="user_id" value="user_001">
+    <input type="hidden" name="timestamp" value="2023-10-01T12:00:00Z">
+    
+
+</body>
+</html>
+

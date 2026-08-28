@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Checkboxes</title>
+</head>
+<body>
+    <form>
+        <h2>Select your favorite colors:</h2>
+        
+        <label>
+            <input type="checkbox" name="color65tg" value="red"> Red
+        </label><br>
+        
+        <label>
+            <input type="checkbox" name="color" value="blue"> Blue
+        </label><br>
+        
+        <label>
+            <input type="checkbox" name="color" value="green"> Green   
+            </label><br>
+        
+        <label>
+            <input type="checkbox" name="color" value="yellow"> Yellow
+        </label><br>
+        
+        <label>
+            <input type="checkbox" name="color" value="purple"> Purple
+        </label><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <form id="fruits">
+        <lebel for="fruits">Select your favorite fruits:</label><br>
+        <input type="checkbox" name="fruit" one click ="alert('Apple selected');"   value="apple"> Apple<br>
+        <input type="checkbox" name="fruit" one click ="alert('Banana selected');"   value="banana"> Banana<br>
+        <input type="checkbox" name="fruit"  one click ="alert('Cherry selected');"   value="cherry"> Cherry<br>
+        <input type="checkbox" name="fruit" one click ="alert('Date selected');"   value="date"> Date<br>  
+        
+    </form>
+    <script>
+        // JavaScript to handle form submission and display selected colors
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            4
+            const selectedColors = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            
+            checkboxes.forEach(checkbox => {
+                selectedColors.push(checkbox.value);
+            });
+              
+        });
+    </script>
+    <fieldset>
+        <legend>Choose your favorite fruits:</legend>
+        <label>
+            <input type="checkbox" name="fruit" value="apple"> Apple
+        </label><br>
+        <label>
+            <input type="checkbox" name="fruit" value="banana"> Banana
+        </label><br>
+        <label>
+            <input type="checkbox" name="fruit" value="cherry"> Cherry
+        </label><br>
+        <label>
+            <input type="checkbox" name="fruit" value="date"> Date
+        </label><br>
+        <label>
+            <input type="checkbox" name="fruit" value="elderberry"> Elderberry
+        </label><br>
+    </fieldset>
+    <script>
+        // JavaScript to handle form submission and display selected fruits
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting normally    
+            const selectedFruits = [];
+            const checkboxes = document.querySelectorAll('input[name="fruit"]:checked');
+            
+            checkboxes.forEach(checkbox => {
+                selectedFruits.push(checkbox.value);
+            });
+            
+            alert('Selected fruits: ' + selectedFruits.join(', '));
+        });
+    </script>   
+</body>
+</html>
